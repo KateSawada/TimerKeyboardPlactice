@@ -25,4 +25,4 @@ view_model ..> model
   - [doc](https://riverpod.dev)を読んでみたところ，そこまで難しい印象は受けなかっった．
   - 実際にやってみる．
   - やってみているけど，うまく更新できていない．もしかして[これ](https://zenn.dev/naoya_maeda/articles/a8bbf40a202c74#statenotifierprovider)で実装しないといけない?
-  - できた．
+  - できた． [main 1a3d125]
