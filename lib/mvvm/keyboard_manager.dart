@@ -18,8 +18,7 @@ class KeyboardManager {
   int get currentFocusIndex => _currentFocusIndex;
 
   int focusPeriod = 1; // 1 second
-  Timer focusTimer =
-      Timer.periodic(const Duration(seconds: 1), (Timer timer) {});
+  late Timer timer;
 
   // 現在選択中のキーボードに関する情報
   int currentKeyboardIndex = 0;
@@ -42,6 +41,12 @@ class KeyboardManager {
     keyboards.add(JapaneseKeyboard());
   }
 
+  void moveFocusNext() {
+    _currentFocusIndex =
+        _currentFocusIndex + 1 >= keyLength ? 0 : _currentFocusIndex + 1;
+    updateFocus(_currentFocusIndex);
+  }
+
   // フォーカスが当たっているキーを変更する関数．
   void updateFocus(int newIdx) {
     _currentFocusIndex = newIdx;
@@ -50,7 +55,13 @@ class KeyboardManager {
     rebuildKeyGrid();
   }
 
-  void enableAutoFocus() {}
+  void enableAutoFocus() {
+    timer = Timer.periodic(Duration(seconds: focusPeriod), (timer) {
+      moveFocusNext();
+    });
+  }
 
-  void disableAutoFocus() {}
+  void disableAutoFocus() {
+    timer.cancel();
+  }
 }

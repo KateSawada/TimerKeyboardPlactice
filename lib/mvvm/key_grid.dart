@@ -43,6 +43,12 @@ class KeyGridState extends State<KeyGrid> {
   }
 
   @override
+  void dispose() {
+    KeyboardManager().disableAutoFocus();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Expanded(
         flex: 2,
