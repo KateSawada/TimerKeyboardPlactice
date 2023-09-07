@@ -19,6 +19,7 @@ class KeyGridState extends State<KeyGrid> {
     }
     // KeyGridがもつ，KeyButton再描画の関数をKeyboardManagerに登録する
     KeyboardManager().setRebuildKeyGrid(updateButtonsState);
+    KeyboardManager().enableAutoFocus();
   }
 
   List<GridTile> createKeys() {
@@ -44,7 +45,7 @@ class KeyGridState extends State<KeyGrid> {
 
   @override
   void dispose() {
-    KeyboardManager().disableAutoFocus();
+    KeyboardManager().onKeyGridDispose();
     super.dispose();
   }
 

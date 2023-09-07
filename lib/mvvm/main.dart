@@ -24,6 +24,16 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const KeyGrid();
+    return ElevatedButton(
+      child: const Text("はじめる"),
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const Row(
+                      children: [KeyGrid()],
+                    )));
+      },
+    );
   }
 }

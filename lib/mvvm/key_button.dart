@@ -32,6 +32,7 @@ class KeyButtonState extends State<KeyButton> {
       color: isFocused ? Colors.white : const Color(0xff87cefa),
       child: TextButton(
         onPressed: () {
+          KeyboardManager().resetAutoFocusTimer();
           // キーを押されたら自身にフォーカスが当たるように，フォーカスの更新関数を呼ぶ
           KeyboardManager().updateFocus(widget.idx);
         },
