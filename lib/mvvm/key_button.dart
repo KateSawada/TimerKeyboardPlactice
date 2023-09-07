@@ -13,6 +13,12 @@ class KeyButton extends StatefulWidget {
 class KeyButtonState extends State<KeyButton> {
   bool isFocused = false;
 
+  @override
+  void initState() {
+    isFocused = widget.idx == KeyboardManager().currentFocusIndex;
+    super.initState();
+  }
+
   // 上位widget(KeyGrid)からこのstateをいじるために関数を用意した
   void updateFocusState(bool newState) {
     setState(() {
