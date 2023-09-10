@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'key_grid.dart';
 import 'init.dart';
+import '../bluetooth/blue_connect.dart';
 
 // クラス名、メソッド名、プロパティ名（変数名）について、筆者が作成したもの（名前変更可のもの）
 // の名前の末尾には、大文字のオー「O」をつけています
@@ -30,9 +31,12 @@ class HomePage extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => const Row(
-                      children: [KeyGrid()],
-                    )));
+                builder: (context) => Column(children: [
+                      Expanded(
+                        child: KeyGrid(),
+                      ),
+                      Expanded(child: ConnectPage()),
+                    ])));
       },
     );
   }

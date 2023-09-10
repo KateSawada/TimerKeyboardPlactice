@@ -57,7 +57,7 @@ class KeyboardManager {
   // フォーカスが当たっているキーを変更する関数．
   void updateFocus(int newIdx) {
     _currentFocusIndex = newIdx;
-    print("idx updated: $_currentFocusIndex");
+    // print("idx updated: $_currentFocusIndex");
     // KeyButtonの再描画の関数を実行．
     rebuildKeyGrid();
   }
